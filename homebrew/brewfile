@@ -1,0 +1,4 @@
+brew fd
+brew dust
+brew dos2unix
+brew nvm
