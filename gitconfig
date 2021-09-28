@@ -23,6 +23,7 @@
   whitespace = red reverse
 
 [alias]
+  a = add --all
   pr = pull --rebase
   st = status
   c = commit
@@ -41,6 +42,8 @@
   com = checkout main
   praise = blame
   cp = cherry-pick
+  cpa = cherry-pick --abort
+  cpc = cherry-pick --continue
   ca = commit --amend
   tw = tag -f work
   pm = push origin main
@@ -78,20 +81,23 @@
     reflog = delta
     show = delta
 
-[interactive]
-    diffFilter = delta --color-only --features=interactive
-
 [delta]
-    features = decorations
+	features = line-numbers decorations
+	line-numbers = true
+[delta "decorations"]
+	minus-style = red bold normal
+	plus-style = green bold normal
+	minus-emph-style = white bold red
+	minus-non-emph-style = red bold normal
+	plus-emph-style = white bold green
+	plus-non-emph-style = green bold normal
+	file-style = yellow bold none
+	file-decoration-style = yellow box
+	hunk-header-style = magenta bold
+	hunk-header-decoration-style = magenta box
+	minus-empty-line-marker-style = normal normal
+	plus-empty-line-marker-style = normal normal
+	line-numbers-right-format = "{np:^4}│ "
 
 [delta "interactive"]
     keep-plus-minus-markers = false
-
-[delta "decorations"]
-    commit-decoration-style = blue ol
-    commit-style = raw
-    file-style = omit
-    hunk-header-decoration-style = blue box
-    hunk-header-file-style = red
-    hunk-header-line-number-style = "#067a00"
-    hunk-header-style = file line-number syntax

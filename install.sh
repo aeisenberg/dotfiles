@@ -1,6 +1,10 @@
 #!/bin/bash
 
-exec > >(tee -i $HOME/dotfiles_install.log)
+INSTALL_LOG=$HOME/dotfiles_install.log
+
+echo "Loading dotfiles. See $INSTALL_LOG"
+
+exec > >(tee -i $INSTALL_LOG)
 exec 2>&1
 set -x
 
